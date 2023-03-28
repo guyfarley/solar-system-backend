@@ -3,9 +3,9 @@ const mysql = require('mysql')
 
 // Connect to database
 const pool = mysql.createPool({
-    host        : process.env.DB_HOST,
-    user        : process.env.DB_USER,
-    password    : process.env.DB_PASS,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
 })
 
 // Views all planets
@@ -17,11 +17,11 @@ exports.home = (req, res) => {
         }
         console.log('connected to DB')
         // Using connection
-        connection.query('SELECT * FROM solar_system_schema.planet', (err,rows) => {
+        connection.query('SELECT * FROM solar_system_schema.planet', (err, rows) => {
             //release connection
             connection.release()
             if (!err) {
-                res.send({rows})
+                res.send({ rows })
             } else {
                 console.log(err)
             }
@@ -36,14 +36,15 @@ exports.planet = (req, res) => {
     pool.getConnection((err, connection) => {
         if (err) {
             throw err // didnt connect
-        } 
+        }
         console.log('connected to DB')
+        console.log(req.params);
         // Using connection
-        connection.query('SELECT * FROM solar_system_schema.planet, solar_system_schema.moon WHERE solar_system_schema.planet.planet_id = solar_system_schema.moon.planet_id AND solar_system_schema.planet.planet_id = ?',[req.params.planet_id], (err,rows) => {
+        connection.query('SELECT * FROM solar_system_schema.planet, solar_system_schema.moon WHERE solar_system_schema.planet.planet_id = solar_system_schema.moon.planet_id AND solar_system_schema.planet.planet_id = ?', [req.params], (err, rows) => {
             //release connection
             connection.release()
             if (!err) {
-                res.send({rows})
+                res.send({ rows })
             } else {
                 console.log(err)
             }
