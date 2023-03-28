@@ -8,7 +8,7 @@ const pool = mysql.createPool({
     password    : process.env.DB_PASS,
 })
 
-// Views all planets
+// Requests all planets
 exports.home = (req, res) => {
     // Connect to DB
     pool.getConnection((err, connection) => {
@@ -30,7 +30,7 @@ exports.home = (req, res) => {
     })
 }
 
-// Views specific planet
+// Requests specific planet and its moons
 exports.planet = (req, res) => {
     // Connect to DB
     pool.getConnection((err, connection) => {
