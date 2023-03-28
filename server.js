@@ -2,10 +2,10 @@ const express = require('express')
 const mysql = require('mysql')
 const cors = require('cors')
 
-require('dotenv').config()
+require("dotenv").config();
 
 //starting express app
-const app = express()
+const app = express();
 
 app.use(cors());
 
@@ -14,6 +14,6 @@ const routes = require('./routes/routes')
 app.use('/', routes)
 
 app.listen(8080, () => {
-    console.log('listening')
-})
+  console.log("listening");
+});
 
