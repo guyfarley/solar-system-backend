@@ -6,7 +6,7 @@ const routeController = require('../controller/routesController')
 router.get('/', routeController.home)
 
 // Planet Routes
-router.get('/:planet_id', routeController.planet)
+router.get('/planet/:planet_id', routeController.planet)
 
 /* // Moon Routes
 router.get('/:planet_id/:moon_id', routeController.moons) */
