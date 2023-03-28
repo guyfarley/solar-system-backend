@@ -1,10 +1,13 @@
-const express = require("express");
-const mysql = require("mysql");
+const express = require('express')
+const mysql = require('mysql')
+const cors = require('cors')
 
 require("dotenv").config();
 
 //starting express app
 const app = express();
+
+app.use(cors());
 
 //connecting to sql database
 const connection = mysql.createConnection({
