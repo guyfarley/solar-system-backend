@@ -1,7 +1,7 @@
 const express = require('express')
 const mysql = require('mysql')
 const cors = require('cors')
-
+const PORT = process.env.PORT || 8080;
 require("dotenv").config();
 
 //starting express app
@@ -13,7 +13,7 @@ app.use(cors());
 const routes = require('./routes/routes')
 app.use('/', routes)
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log("listening");
 });
 
