@@ -78,8 +78,8 @@ DB_USER = 'admin'
 DB_NAME = 'solar-system-project'
 ```
 
-3. Run the backend by the following command: `npm start`
-4. Clone and run the frontend by going to the following repo:
+4. Run the backend by the following command: `npm start`
+5. Clone and run the frontend by going to the following repo:
 <https://github.com/guyfarley/solar-system-frontend>
 
 5. Following the `README` file within the frontend repo to clone and run the frontend.
