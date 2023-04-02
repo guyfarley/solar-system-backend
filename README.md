@@ -1,4 +1,4 @@
-# Team Pluto Presents: Intergalactic Planetary - Backend
+# Team Intergalactic Presents: Intergalactic Planetary - Backend
 
 <p>A full-stack application which teaches students about our solar system.  The Homepage lets the user flip through all the planets within the solar system (which includes Pluto), gives the user other resources to extend their knowledge (we recommend checking out the solar system rap!), and a few fun facts about our solar system.  </p>
 <p>The planet cards on the home page have a 'Learn more' section where the user is directed to the individual page for that planet.  The planet cards also have a locate button and when selected the planet is located on the solar system within the banner on the homepage.</p>
@@ -6,7 +6,7 @@
 <p>The application if fully responsive in mobile, tablet, and desktop.</p>
 <p>The project is a week long hackathon with a team consisting of three developers who came together through the Hackathon discord channel, wireframed an idea, planned tickets/tasks through a Trello board, and communicated daily via Discord. </p>
 
-## Created by Team Pluto 🚀
+## Created by Team Intergalactic 🚀
 
 - <a href="https://github.com/guyfarley" target="_blank">Guy Farley</a>
 - <a href="https://github.com/revyrob" target="_blank">Kayle Robson</a>
@@ -43,15 +43,19 @@ This application was developed for a Dear Junior Dev Hackathon, between March 24
 ## Planning and Preparation Documentation
 
 ### 🖊️ Wireframe
+
 <a href="https://www.figma.com/file/SKLo9xQkuOUE3LnJN2Jczx/SolarSystemHackathon?node-id=0%3A1&t=TJt5GIPi0GyAOFmV-1" target="_blank">WireFrame</a>
 
 ### 📝 Trello board for tickets/tasks
+
 <a href="https://trello.com/b/HAw11w0p/quackathon" target="_blank">Ticket board</a>
 
 ## 📸 Visual Presentation
+
 ![galaticgif](https://user-images.githubusercontent.com/66695865/229334794-a15d6902-6e5a-4317-98a5-fbb3de0197aa.gif)
 
 ## Deployed Site
+
 <p>We deployed using Netlify and Heroku</p>
 <p>Check it out 👉 <a href="https://intergalactic-planetary.netlify.app/" target="_blank">HERE</a></p>
 
@@ -85,8 +89,12 @@ DB_NAME = 'solar-system-project'
 5. Following the `README` file within the frontend repo to clone and run the frontend.
 
 ## Development Information
-<p>Our backend consists of a MySQL database running on Amazon Web Services Relational Database Service and an express server running on Node.JS.</p> 
-<p>Our MySQL database consists of two tables, one for the planets and one for the moons. The planet table consists of the following variables:</p>
+
+<p>Our backend consists of a MySQL database running on Amazon Web Services Relational Database Service and an express server running on Node.JS.</p>
+<p>Our MySQL database consists of two tables, one for the planets and one for the moons.</p>
+
+### Planet Table
+
 <li>A unique planet id</li>
 <li>The planet name</li>
 <li>The planet size</li>
@@ -95,24 +103,26 @@ DB_NAME = 'solar-system-project'
 <li>An enum representing the planet's type (terrestrial, ice giant, dwarf planet, or gas giant)</li>
 <li>The length of the planet's moon in earth days</li>
 <li>A description of the planet's atmosphere</li>
-<p>The moon table consists of the following variables:</p>
+
+### Moon Table
+
 <li>A unique moon id</li>
 <li>A foreign key linking it to the planet it belongs to (planet id)</li>
 <li>The moon's name</li>
 <li>The history behind the moon's name</li>
+
 <p>On the server side we start an express app and have it listen to the port specified in the .env file or it defaults to listening to 8080.</p>
 <p>We establish the endpoints we listen to using an express router and a controller. For this project we listen to two main endpoints, one for the home page and one for the specific pages for each planet.</p>
 <p>These routes can be found in the routes.js folder as:</p>
-<p>router.get("/", routeController.home);</p>
-<p>router.get('/planet/:planet_id', routeController.planet)</p>
+
+- `router.get("/", routeController.home);`
+- `router.get('/planet/:planet_id', routeController.planet)`
+
 <p>The first route is the home page, the second uses the specific planet id as a route parameter.</p>
 <p>When these two routes are sent a get request from our frontend, they call their respective controller to handle the request.</p>
 <p>In response to the home page, the controller sends a sql query to get the information of all the planets from the planet table so they can be rendered in the planet carousel.</p>
 <p>In response to the second route, the controller queries for the planet specified in route parameter, as well as all the moons associated with that moon. If the planet has no moons (Mercury and Venus), it sends another query to grab only the specified planet's information.</p>
 
-## 📸 Images
-
-## 🎥 Demo
-
 ## 🔨 Things to Work On
+
 - Getting the Solar System Banner in mobile to move around on touch so the user can see all the planets
